@@ -207,7 +207,7 @@ function read_messages(bag::ChunkedBag, chunk_indices, args...)
 end
 
 select(filters::Tuple{}, x) = true # empty filters: include all
-select(filters::Tuple, x) = all(f->select(f,x), filters)
+select(filters::Tuple, x) = any(f->select(f,x), filters)
 
 struct ConnectionFilter
     conn::Int
