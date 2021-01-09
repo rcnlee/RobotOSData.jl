@@ -125,6 +125,7 @@ function gen_package(package::Symbol, msg_dir::String, deps)
             println("Skipping built-in $typename")
             continue
         end
+        @show msg_file
         tokens = open(parse_msg, joinpath(msg_dir, msg_file), "r")
         structs[typename] = make_struct(package, typename, tokens)
     end
